@@ -18,6 +18,9 @@ Future<ItemsData> getAllData(context) async {
     if (response.statusCode == 200) {
       final items = json.decode(response.body);
       data = ItemsData.fromJson(items);
+    } else {
+      Toast.show("Server error", context,
+          backgroundColor: Colors.red, textColor: Colors.white);
     }
   } catch (e) {
     Toast.show("Server error", context,
