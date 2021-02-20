@@ -15,6 +15,8 @@ class ItemsProviderModel with ChangeNotifier {
 
   List<Item> bagList = [];
   List<Item> purseList = [];
+  double total = 0.0;
+
 
   getItemsData(context) {
     checkNetworkStatus(context).then((value) async {
@@ -57,7 +59,6 @@ class ItemsProviderModel with ChangeNotifier {
 
   addToCart(context,item){
     if(cartList.contains(item)){
-
     }else {
       cartList.add(item);
       print("cart length ${cartList.length.toString()}");
@@ -68,6 +69,7 @@ class ItemsProviderModel with ChangeNotifier {
   removeFromCart(context,item){
     if(cartList.contains(item)){
       cartList.remove(item);
+      calculateTotal(context);
       notifyListeners();
     }
   }
@@ -82,6 +84,14 @@ class ItemsProviderModel with ChangeNotifier {
         notifyListeners();
       }
     }
+  }
+
+  calculateTotal(context){
+    total = 0;
+    for (var i = 0; i < cartList.length; i++) {
+      total += double.parse(cartList[i].price) * double.parse(cartList[i].quantity.toString());
+    }
+    notifyListeners();
   }
 }
 

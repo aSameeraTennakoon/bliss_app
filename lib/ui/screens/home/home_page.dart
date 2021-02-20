@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                               onTap: (){
                                 getDataPMDL.setSingleItem(getDataPMDL.itemsData.data[index]);
                                 Navigator.push(
-                                    context, CupertinoPageRoute(builder: (context) => DetailedPage()));
+                                    context, CupertinoPageRoute(builder: (context) => DetailedPage(false)));
                               },
                             );
                           },

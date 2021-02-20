@@ -1,7 +1,10 @@
+import 'package:bliss_flutter/provider_models/get_items_provider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
+import 'package:provider/provider.dart';
 
 Widget commonCartListItem(context,color,w,h,image,data,onTap,onTap2){
+  final getDataPMDL = Provider.of<ItemsProviderModel>(context);
   return Container(
     padding: EdgeInsets.only(top: 20,bottom: 20,right: 20,left: 20),
     decoration:BoxDecoration(

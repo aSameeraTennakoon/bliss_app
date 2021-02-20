@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 
 class DetailedPage extends StatefulWidget {
+  final bool isFromCart;
+  DetailedPage(this.isFromCart);
   @override
   _DetailedPageState createState() => _DetailedPageState();
 }
@@ -29,7 +31,9 @@ class _DetailedPageState extends State<DetailedPage> {
             ? theme.appPurple
             : theme.appDPurple,
         automaticallyImplyLeading: true,
-        actions: [
+        actions:
+            !widget.isFromCart
+        ?[
           Container(
             padding: const EdgeInsets.only(right: 20.0),
             child: InkWell(
@@ -57,7 +61,8 @@ class _DetailedPageState extends State<DetailedPage> {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20),
             child: InkWell(
-              onTap: (){
+              onTap: ()async{
+                await getDataPMDL.calculateTotal(context);
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => CartScreen()));
               },
@@ -73,7 +78,7 @@ class _DetailedPageState extends State<DetailedPage> {
                         child: Icon(Icons.shopping_cart))
                     : Icon(Icons.shopping_cart)),
           ),
-        ],
+        ]:[],
       ),
       backgroundColor: getDataPMDL.selectedItem.category == 'bag'
           ? theme.appPurple
@@ -197,7 +202,8 @@ class _DetailedPageState extends State<DetailedPage> {
                         ),
                       ),
                     ),
-                    Align(
+                    !widget.isFromCart
+                    ?Align(
                       alignment: Alignment.bottomCenter,
                       child: InkWell(
                         onTap: () {
@@ -225,7 +231,7 @@ class _DetailedPageState extends State<DetailedPage> {
                           )),
                         ),
                       ),
-                    )
+                    ):Container()
                   ],
                 ),
               ),

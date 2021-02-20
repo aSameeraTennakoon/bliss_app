@@ -1,5 +1,6 @@
 import 'package:bliss_flutter/provider_models/get_items_provider_model.dart';
 import 'package:bliss_flutter/ui/common/common_cart_item.dart';
+import 'package:bliss_flutter/ui/screens/home/home_page.dart';
 import 'package:bliss_flutter/ui/screens/items/detailed_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     final getDataPMDL = Provider.of<ItemsProviderModel>(context);
@@ -49,7 +52,6 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ],
                 )),
-
             Expanded(
               child:
               Container(
@@ -75,19 +77,42 @@ class _CartScreenState extends State<CartScreen> {
                                 (){
                               getDataPMDL.setSingleItem(getDataPMDL.itemsData.data[index]);
                               Navigator.push(
-                                  context, CupertinoPageRoute(builder: (context) => DetailedPage()));
+                                  context, CupertinoPageRoute(builder: (context) => DetailedPage(true)));
                             },
                           )
                       ),
                       onTap: (){
                         getDataPMDL.setSingleItem(getDataPMDL.itemsData.data[index]);
                         Navigator.push(
-                            context, CupertinoPageRoute(builder: (context) => DetailedPage()));
+                            context, CupertinoPageRoute(builder: (context) => DetailedPage(true)));
                       },
                     );
                   },
                 ),
               )
+            ),
+            Divider(
+              indent: 40.0,
+              endIndent: 40,
+              thickness: 5,
+              color: theme.pinkIsh,
+            ),
+            Container(
+              padding: EdgeInsets.only(bottom: 40,top: 40),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding:EdgeInsets.only(left: 40),
+                      child: Text("Total",style: theme.categoryStyle,)),
+
+                  Spacer(),
+                  Container(
+                      padding:EdgeInsets.only(right: 40),
+                      child: Text("Rs. ${getDataPMDL.total.toString()}",style: theme.categoryStyle)),
+                ],
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -120,7 +145,7 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ):Container(
           child: Column(
@@ -146,8 +171,10 @@ class _CartScreenState extends State<CartScreen> {
                     padding: EdgeInsets.only(bottom: 30),
                     child: InkWell(
                       onTap: () {
-                        getDataPMDL.addToCart(
-                            context, getDataPMDL.selectedItem);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+                                (r) => false);
                       },
                       child: Container(
                         height: 50,
@@ -165,7 +192,7 @@ class _CartScreenState extends State<CartScreen> {
                             ]),
                         child: Center(
                             child: Text(
-                              "Add to Cart",
+                              "Browse Items",
                               style: theme.addCartButtonStyle,
                             )),
                       ),
