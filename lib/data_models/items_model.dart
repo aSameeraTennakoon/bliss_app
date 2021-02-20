@@ -23,7 +23,8 @@ class Item {
     this.width,
     this.weight,
     this.category,
-    this.isFav
+    this.isFav,
+    this.quantity
   });
 
   int id;
@@ -34,6 +35,7 @@ class Item {
   String weight;
   String category;
   bool isFav = false;
+  int quantity;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     id: json["id"],
@@ -43,7 +45,8 @@ class Item {
     width: json["width"],
     weight: json["weight"],
     category: json["category"],
-    isFav: false
+    isFav: false,
+    quantity: 0
   );
 
   Map<String, dynamic> toJson() => {

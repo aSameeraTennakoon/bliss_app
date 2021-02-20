@@ -3,7 +3,7 @@ import 'package:bliss_flutter/global/theme.dart' as theme;
 
 Widget commonCategoryItem(color,image,label){
   return Container(
-    padding: EdgeInsets.only(top: 20,bottom: 20,right: 20,left: 20),
+    padding: EdgeInsets.only(right: 20,left: 20),
     decoration:BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         color: color,

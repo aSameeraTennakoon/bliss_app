@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:provider/provider.dart';
 
-Widget commonPopularItem(context,index,color,image,label){
+Widget commonPopularItem(context,data,index,color,image,label){
   bool isFav = false;
   final getDataPMDL = Provider.of<ItemsProviderModel>(context);
   isFav = getDataPMDL.itemsData.data[index].isFav;
@@ -53,7 +53,9 @@ Widget commonPopularItem(context,index,color,image,label){
         Expanded(
           flex: 6,
           child: Container(
-            child: Image.asset(image,scale: 2),
+            child: Hero(
+              tag: "photo" + index.toString(),
+                child: Image.asset(image,scale: 2)),
           ),
         ),
       ],

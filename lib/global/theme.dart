@@ -8,6 +8,13 @@ Color yellow = Color.fromRGBO(230, 230, 0, 1);
 Color appGreen = Color.fromRGBO(151, 249, 200, 1);
 Color appPurple = Color.fromRGBO(216, 192, 252, 1);
 Color appDPurple = Color.fromRGBO(174, 181, 253, 1);
+Color detailPurple = Color.fromRGBO(241, 233, 254, 1);
+Color detailDPurple = Color.fromRGBO(226, 229, 254, 1);
+
+
+
+
+
 
 TextStyle helloStyle = TextStyle(
     fontFamily: 'Quicksand',
@@ -44,3 +51,27 @@ TextStyle popCodeLabel = TextStyle(
     fontWeight: FontWeight.w600,
     color: Colors.black45,
     fontSize: 18);
+
+TextStyle popCodeDetailLabel = TextStyle(
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.bold,
+    color: Colors.black45,
+    fontSize: 30);
+
+TextStyle detailDStyle = TextStyle(
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.bold,
+    color: Colors.black54,
+    fontSize: 20);
+
+TextStyle detailDLStyle = TextStyle(
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.w600,
+    color: Colors.black54,
+    fontSize: 20);
+
+TextStyle addCartButtonStyle = TextStyle(
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.bold,
+    color: Colors.white70,
+    fontSize: 24);

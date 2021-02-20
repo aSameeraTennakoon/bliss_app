@@ -9,6 +9,10 @@ class ItemsProviderModel with ChangeNotifier {
   ItemsData itemsData;
   bool isLoading = true;
 
+  List<Item> cartList = [];
+
+  Item selectedItem = Item();
+
   getItemsData(context) {
     checkNetworkStatus(context).then((value) async {
       isLoading = true;
@@ -28,8 +32,27 @@ class ItemsProviderModel with ChangeNotifier {
     });
   }
 
+  setSingleItem(item) => selectedItem = item;
+
   addToFav(context,fav,index){
     itemsData.data[index].isFav = fav;
     notifyListeners();
   }
+
+  incrementQuant(context,index){
+    itemsData.data[index].quantity ++;
+    notifyListeners();
+  }
+
+  decrementQuant(context,index){
+    if(itemsData.data[index].quantity > 0){
+      itemsData.data[index].quantity --;
+    }
+    notifyListeners();
+  }
+
+  addToCart(context,item){
+
+  }
+
 }
