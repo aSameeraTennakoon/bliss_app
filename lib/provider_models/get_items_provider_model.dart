@@ -56,21 +56,30 @@ class ItemsProviderModel with ChangeNotifier {
   }
 
   addToCart(context,item){
-    for(Item c in item){
-      if(item.modelName == c.modelName){
-        return;
-      }
+    if(cartList.contains(item)){
+
+    }else {
+      cartList.add(item);
+      print("cart length ${cartList.length.toString()}");
     }
-    cartList.add(item);
     notifyListeners();
+  }
+
+  removeFromCart(context,item){
+    if(cartList.contains(item)){
+      cartList.remove(item);
+      notifyListeners();
+    }
   }
 
   addToCategory(context,items) {
     for (Item c in items) {
       if (c.category == 'bag'){
         bagList.add(c);
+        notifyListeners();
       }else{
         purseList.add(c);
+        notifyListeners();
       }
     }
   }

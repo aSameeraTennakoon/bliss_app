@@ -39,6 +39,9 @@ dependencies:
   #https://pub.dev/packages/loading_animations
   loading_animations: ^2.1.0
 
+  #https://pub.dev/packages/badges
+  badges: ^1.1.6
+
 
 
   # The following adds the Cupertino Icons font to your application.

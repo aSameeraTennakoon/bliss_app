@@ -1,6 +1,5 @@
 import 'package:bliss_flutter/provider_models/get_items_provider_model.dart';
 import 'package:bliss_flutter/ui/common/common_category_list_item.dart';
-import 'package:bliss_flutter/ui/screens/items/detailed_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
@@ -64,26 +63,19 @@ class _FilterScreenState extends State<FilterScreen> {
                   shrinkWrap: false,
                   itemCount: getDataPMDL.bagList.length,
                   itemBuilder: (BuildContext context,int index){
-                    return InkWell(
-                      child: Container(
-                        padding: EdgeInsets.only(right: 20),
-                        child:
-                        commonCategoryListItem(context,
-                            widget.category == 'Bags'
-                              ?theme.appPurple :theme.appDPurple,
-                          width,
-                          height,
-                            widget.category == 'Bags'
-                              ?'assets/images/bag-one.png':'assets/images/bag-two.png',
-                            widget.category == 'Bags'
-                            ?getDataPMDL.bagList[index]:getDataPMDL.purseList[index]
-                        )
-                      ),
-                      onTap: (){
-                        getDataPMDL.setSingleItem(getDataPMDL.itemsData.data[index]);
-                        Navigator.push(
-                            context, CupertinoPageRoute(builder: (context) => DetailedPage()));
-                      },
+                    return Container(
+                        padding: EdgeInsets.only(bottom: 20,right: 20),
+                      child:
+                      commonCategoryListItem(context,
+                          widget.category == 'Bags'
+                            ?theme.appPurple :theme.appDPurple,
+                        width,
+                        height,
+                          widget.category == 'Bags'
+                            ?'assets/images/bag-one.png':'assets/images/bag-two.png',
+                          widget.category == 'Bags'
+                          ?getDataPMDL.bagList[index]:getDataPMDL.purseList[index]
+                      )
                     );
                   },
                 ),
