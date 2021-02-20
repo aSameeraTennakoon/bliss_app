@@ -32,7 +32,9 @@ class _CartScreenState extends State<CartScreen> {
                   Colors.white70
                 ])
         ),
-        child: Column(
+        child:
+        getDataPMDL.cartList.isNotEmpty
+          ?Column(
           children: [
             Container(
                 padding: EdgeInsets.only(top: 50.0,bottom: 20),
@@ -47,10 +49,10 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ],
                 )),
+
             Expanded(
               child:
-              getDataPMDL.cartList.isNotEmpty
-              ?Container(
+              Container(
                 padding: EdgeInsets.only(left: 30),
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -85,11 +87,94 @@ class _CartScreenState extends State<CartScreen> {
                     );
                   },
                 ),
-              ):Container(
-
+              )
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                padding: EdgeInsets.only(bottom: 30),
+                child: InkWell(
+                  onTap: () {
+                    getDataPMDL.addToCart(
+                        context, getDataPMDL.selectedItem);
+                  },
+                  child: Container(
+                    height: 50,
+                    width: width - 100,
+                    padding: EdgeInsets.only(right: 20, left: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: theme.appButtonColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            // spreadRadius: 5,
+                            blurRadius: 7,
+                          )
+                        ]),
+                    child: Center(
+                        child: Text(
+                          "Checkout",
+                          style: theme.addCartButtonStyle,
+                        )),
+                  ),
+                ),
               ),
             )
           ],
+        ):Container(
+          child: Column(
+            children: [
+              Expanded(
+                  child: Container(
+                    height: height/3,
+                  )),
+              Expanded(
+                  child: Column(
+                    children: [
+                      Image.asset('assets/images/shopping-cart.png',scale: 3,color: Colors.purple,),
+                      SizedBox(height: 40),
+                      Container(
+                        child: Text("Your cart is currently \n empty !",textAlign: TextAlign.center,style: theme.categoryStyle,),
+                      ),
+                    ],
+                  )),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 30),
+                    child: InkWell(
+                      onTap: () {
+                        getDataPMDL.addToCart(
+                            context, getDataPMDL.selectedItem);
+                      },
+                      child: Container(
+                        height: 50,
+                        width: width - 100,
+                        padding: EdgeInsets.only(right: 20, left: 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: theme.appButtonColor,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                // spreadRadius: 5,
+                                blurRadius: 7,
+                              )
+                            ]),
+                        child: Center(
+                            child: Text(
+                              "Add to Cart",
+                              style: theme.addCartButtonStyle,
+                            )),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

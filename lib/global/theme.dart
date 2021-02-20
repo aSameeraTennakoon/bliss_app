@@ -10,9 +10,7 @@ Color appPurple = Color.fromRGBO(216, 192, 252, 1);
 Color appDPurple = Color.fromRGBO(174, 181, 253, 1);
 Color detailPurple = Color.fromRGBO(241, 233, 254, 1);
 Color detailDPurple = Color.fromRGBO(226, 229, 254, 1);
-
-
-
+Color appButtonColor = Color.fromRGBO(227, 116, 161, 1);
 
 
 
