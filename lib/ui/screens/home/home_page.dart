@@ -2,6 +2,7 @@ import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:bliss_flutter/provider_models/get_items_provider_model.dart';
 import 'package:bliss_flutter/provider_models/get_user_data_provider.dart';
 import 'package:bliss_flutter/ui/common/common_loader.dart';
+import 'package:bliss_flutter/ui/screens/fliter/filter_ui.dart';
 import 'package:bliss_flutter/ui/screens/items/detailed_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String bag = "Bags";
+  String purse = "Purses";
+
   @override
   void initState() {
     final userDataPMDL = Provider.of<UserDataProviderModel>(
@@ -51,7 +56,6 @@ class _HomePageState extends State<HomePage> {
                     colors:
                     [
                       theme.appPink,
-                     // theme.appPink50
                       Colors.white70
                     ])
             ),
@@ -161,19 +165,31 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(top:10.0,bottom: 10,right: 20),
-                              child: commonCategoryItem(
-                                  theme.pinkIsh,
-                                  'assets/images/handbag.png',
-                                  "Bags"
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.push(
+                                      context, CupertinoPageRoute(builder: (context) => FilterScreen(bag)));
+                                },
+                                child: commonCategoryItem(
+                                    theme.pinkIsh,
+                                    'assets/images/handbag.png',
+                                    "Bags"
+                                ),
                               ),
                             ),
                             // SizedBox(width: 20),
                             Padding(
                               padding: const EdgeInsets.only(top:10.0,bottom: 10,right: 20),
-                              child: commonCategoryItem(
-                                  theme.yellow,
-                                  'assets/images/wallet.png',
-                                  "Purse"
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.push(
+                                      context, CupertinoPageRoute(builder: (context) => FilterScreen(purse)));
+                                },
+                                child: commonCategoryItem(
+                                    theme.yellow,
+                                    'assets/images/wallet.png',
+                                    "Purse"
+                                ),
                               ),
                             ),
                             // SizedBox(width: 20),

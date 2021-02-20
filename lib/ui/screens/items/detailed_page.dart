@@ -118,7 +118,7 @@ class _DetailedPageState extends State<DetailedPage> {
                                     crossAxisAlignment:CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        child: Text(getDataPMDL.selectedItem.price,
+                                        child: Text("Rs ${getDataPMDL.selectedItem.price}",
                                             style: theme.detailDStyle),
                                         padding: EdgeInsets.only(bottom: 15),
                                       ),

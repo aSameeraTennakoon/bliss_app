@@ -13,6 +13,9 @@ class ItemsProviderModel with ChangeNotifier {
 
   Item selectedItem = Item();
 
+  List<Item> bagList = [];
+  List<Item> purseList = [];
+
   getItemsData(context) {
     checkNetworkStatus(context).then((value) async {
       isLoading = true;
@@ -23,6 +26,7 @@ class ItemsProviderModel with ChangeNotifier {
             itemsData = res;
           }
         });
+        addToCategory(context,itemsData.data);
         isLoading = false;
         notifyListeners();
       }else{
@@ -52,7 +56,23 @@ class ItemsProviderModel with ChangeNotifier {
   }
 
   addToCart(context,item){
-
+    for(Item c in item){
+      if(item.modelName == c.modelName){
+        return;
+      }
+    }
+    cartList.add(item);
+    notifyListeners();
   }
 
+  addToCategory(context,items) {
+    for (Item c in items) {
+      if (c.category == 'bag'){
+        bagList.add(c);
+      }else{
+        purseList.add(c);
+      }
+    }
+  }
 }
+

@@ -75,3 +75,9 @@ TextStyle addCartButtonStyle = TextStyle(
     fontWeight: FontWeight.bold,
     color: Colors.white70,
     fontSize: 24);
+
+TextStyle catListStyle = TextStyle(
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.bold,
+    color: Colors.black45,
+    fontSize: 20);
