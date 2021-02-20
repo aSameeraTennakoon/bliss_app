@@ -27,4 +27,9 @@ class ItemsProviderModel with ChangeNotifier {
       }
     });
   }
+
+  addToFav(context,fav,index){
+    itemsData.data[index].isFav = fav;
+    notifyListeners();
+  }
 }

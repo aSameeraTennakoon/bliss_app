@@ -38,13 +38,12 @@ Widget commonPopularItem(context,index,color,image,label){
                   child: InkWell(
                     onTap: (){
                       isFav = !isFav;
-                      getDataPMDL.itemsData.data[index].isFav = isFav;
-                      print(getDataPMDL.itemsData.data[index].isFav);
-                      print("isFave $isFav");
+                      // getDataPMDL.itemsData.data[index].isFav = isFav;
+                      getDataPMDL.addToFav(context,isFav, index);
                     },
                     child:
                     !isFav
-                    ?Icon(Icons.favorite,color: Colors.white,):Icon(Icons.favorite,color: Colors.red,),
+                    ?Icon(Icons.favorite,color: Colors.white,):Icon(Icons.favorite,color: Colors.red),
                   ),
                 )
               ],
@@ -54,7 +53,7 @@ Widget commonPopularItem(context,index,color,image,label){
         Expanded(
           flex: 6,
           child: Container(
-            child: Image.asset(image,scale: 3,),
+            child: Image.asset(image,scale: 2),
           ),
         ),
       ],
