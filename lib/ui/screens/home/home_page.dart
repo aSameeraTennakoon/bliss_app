@@ -4,6 +4,7 @@ import 'package:bliss_flutter/provider_models/get_user_data_provider.dart';
 import 'package:bliss_flutter/ui/common/common_loader.dart';
 import 'package:bliss_flutter/ui/screens/fliter/filter_ui.dart';
 import 'package:bliss_flutter/ui/screens/items/detailed_page.dart';
+import 'package:bliss_flutter/ui/screens/search/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -114,34 +115,42 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  height: 50,
-                  width: width - 40,
-                  decoration:BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.white
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text("Search Your Model",
-                      style: theme.searchStyle,
-                      )),
-                      Spacer(),
-                      Container(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Container(
-                            decoration:BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: theme.purpleIsh
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(
+                          context, CupertinoPageRoute(builder: (context) => SearchScreen()));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: width - 40,
+                      decoration:BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.white
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text("Search Your Model",
+                          style: theme.searchStyle,
+                          )),
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Container(
+                                decoration:BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    color: theme.purpleIsh
+                                ),
+                                height: 40,
+                              width: 40,
+                              child: Icon(Icons.search,color: Colors.white)
                             ),
-                            height: 40,
-                          width: 40,
-                          child: Icon(Icons.search,color: Colors.white)
-                        ),
-                      )
-                    ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
                 Container(

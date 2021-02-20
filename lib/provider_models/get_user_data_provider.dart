@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class UserDataProviderModel with ChangeNotifier {
-
   UserData userData;
   bool isLoading = true;
 
@@ -14,14 +13,14 @@ class UserDataProviderModel with ChangeNotifier {
       isLoading = true;
       notifyListeners();
       if (value) {
-       await getAppUserData(context).then((res){
-         if(res != null){
-           userData = res;
-         }
-       });
-       isLoading = false;
-       notifyListeners();
-      }else{
+        await getAppUserData(context).then((res) {
+          if (res != null) {
+            userData = res;
+          }
+        });
+        isLoading = false;
+        notifyListeners();
+      } else {
         Toast.show('Please connect to the Internet', context,
             duration: 2, backgroundColor: Colors.pink);
       }

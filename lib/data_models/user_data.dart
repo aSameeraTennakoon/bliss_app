@@ -6,12 +6,12 @@ class UserData {
   User user;
 
   factory UserData.fromJson(Map<String, dynamic> json) => UserData(
-    user: User.fromJson(json["data"]),
-  );
+        user: User.fromJson(json["data"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "data": user.toJson(),
-  };
+        "data": user.toJson(),
+      };
 }
 
 class User {
@@ -26,14 +26,14 @@ class User {
   String image;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    uid: json["uid"],
-    name: json["name"],
-    image: json["image"],
-  );
+        uid: json["uid"],
+        name: json["name"],
+        image: json["image"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "uid": uid,
-    "name": name,
-    "image": image,
-  };
+        "uid": uid,
+        "name": name,
+        "image": image,
+      };
 }

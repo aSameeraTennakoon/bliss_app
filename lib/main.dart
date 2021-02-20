@@ -15,20 +15,21 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: providers,
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Bliss',
-        theme: ThemeData(
-          fontFamily: 'Quicksand',
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashScreen()
-      ),
+          debugShowCheckedModeBanner: false,
+          title: 'Bliss',
+          theme: ThemeData(
+            fontFamily: 'Quicksand',
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: SplashScreen()),
     );
   }
 }
 
 List<SingleChildWidget> providers = [
-  ChangeNotifierProvider<UserDataProviderModel>(create: (_) => UserDataProviderModel()),
-  ChangeNotifierProvider<ItemsProviderModel>(create: (_) => ItemsProviderModel()),
+  ChangeNotifierProvider<UserDataProviderModel>(
+      create: (_) => UserDataProviderModel()),
+  ChangeNotifierProvider<ItemsProviderModel>(
+      create: (_) => ItemsProviderModel()),
 ];

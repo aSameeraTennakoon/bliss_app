@@ -32,7 +32,7 @@ class IncrementDecrementWidget extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(50),
             ),
-            child: Icon(Icons.remove,color: Colors.black),
+            child: Icon(Icons.remove, color: Colors.black),
           ),
         ),
         Container(
@@ -44,18 +44,18 @@ class IncrementDecrementWidget extends StatelessWidget {
             // style: categoryChipText,
           ),
         ),
-      InkWell(
-        onTap: onIncrement,
-        child: Container (
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
+        InkWell(
+          onTap: onIncrement,
+          child: Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Icon(Icons.add, color: Colors.black),
           ),
-            child: Icon(Icons.add,color: Colors.black),
-          ),
-      ),
+        ),
       ]),
     );
   }

@@ -5,6 +5,7 @@ import 'package:bliss_flutter/ui/screens/cart/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
+import 'package:toast/toast.dart';
 
 class DetailedPage extends StatefulWidget {
   final bool isFromCart;
@@ -102,7 +103,7 @@ class _DetailedPageState extends State<DetailedPage> {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 25, left: 50),
+                      padding: EdgeInsets.only( left: 50),
                       alignment: Alignment.topLeft,
                       child: Text(
                         getDataPMDL.selectedItem.modelName,
@@ -175,7 +176,7 @@ class _DetailedPageState extends State<DetailedPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 40, bottom: 20),
+                        padding: const EdgeInsets.only(left: 40, bottom: 10),
                         child: Row(
                           children: [
                             Container(
@@ -207,8 +208,13 @@ class _DetailedPageState extends State<DetailedPage> {
                       alignment: Alignment.bottomCenter,
                       child: InkWell(
                         onTap: () {
-                          getDataPMDL.addToCart(
-                              context, getDataPMDL.selectedItem);
+                          if(getDataPMDL.selectedItem.quantity > 0){
+                            getDataPMDL.addToCart(
+                                context, getDataPMDL.selectedItem);
+                          }else{
+                            Toast.show("Quantity cannot be 0",context,backgroundColor: Colors.red,gravity: 1);
+                          }
+
                         },
                         child: Container(
                           height: 50,

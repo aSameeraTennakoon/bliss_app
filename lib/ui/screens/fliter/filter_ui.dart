@@ -26,16 +26,11 @@ class _FilterScreenState extends State<FilterScreen> {
             gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors:
-                [
-                  theme.appPink,
-                  Colors.white70
-                ])
-        ),
+                colors: [theme.appPink, Colors.white70])),
         child: Column(
           children: [
             Container(
-                padding: EdgeInsets.only(top: 50.0,bottom: 20),
+                padding: EdgeInsets.only(top: 50.0, bottom: 20),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -43,15 +38,15 @@ class _FilterScreenState extends State<FilterScreen> {
                         child: Container(
                             padding: EdgeInsets.only(left: 20),
                             alignment: Alignment.centerLeft,
-                            child: Image.asset('assets/images/logo.png'))
-                    ),
+                            child: Image.asset('assets/images/logo.png'))),
                   ],
                 )),
             Container(
               padding: EdgeInsets.only(left: 30),
               alignment: Alignment.topLeft,
               child: Text(
-                widget.category,style: theme.categoryStyle,
+                widget.category,
+                style: theme.categoryStyle,
                 textAlign: TextAlign.start,
               ),
             ),
@@ -62,21 +57,22 @@ class _FilterScreenState extends State<FilterScreen> {
                   scrollDirection: Axis.vertical,
                   shrinkWrap: false,
                   itemCount: getDataPMDL.bagList.length,
-                  itemBuilder: (BuildContext context,int index){
+                  itemBuilder: (BuildContext context, int index) {
                     return Container(
-                        padding: EdgeInsets.only(bottom: 20,right: 20),
-                      child:
-                      commonCategoryListItem(context,
-                          widget.category == 'Bags'
-                            ?theme.appPurple :theme.appDPurple,
-                        width,
-                        height,
-                          widget.category == 'Bags'
-                            ?'assets/images/bag-one.png':'assets/images/bag-two.png',
-                          widget.category == 'Bags'
-                          ?getDataPMDL.bagList[index]:getDataPMDL.purseList[index]
-                      )
-                    );
+                        padding: EdgeInsets.only(bottom: 20, right: 20),
+                        child: commonCategoryListItem(
+                            context,
+                            widget.category == 'Bags'
+                                ? theme.appPurple
+                                : theme.appDPurple,
+                            width,
+                            height,
+                            widget.category == 'Bags'
+                                ? 'assets/images/bag-one.png'
+                                : 'assets/images/bag-two.png',
+                            widget.category == 'Bags'
+                                ? getDataPMDL.bagList[index]
+                                : getDataPMDL.purseList[index]));
                   },
                 ),
               ),
