@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bliss_flutter/ui/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 
+///splash screen UI
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();

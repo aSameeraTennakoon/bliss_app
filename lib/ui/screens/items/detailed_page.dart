@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:toast/toast.dart';
 
+///single item detailed screen UI
 class DetailedPage extends StatefulWidget {
   final bool isFromCart;
   DetailedPage(this.isFromCart);

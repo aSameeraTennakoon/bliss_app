@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:provider/provider.dart';
 
+///common widget for cart list view elements
 Widget commonCartListItem(context, color, w, h, image, data, onTap, onTap2) {
   final getDataPMDL = Provider.of<ItemsProviderModel>(context);
   return Container(

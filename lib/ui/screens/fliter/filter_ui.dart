@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:provider/provider.dart';
 
+///filter screen UI
 class FilterScreen extends StatefulWidget {
   final String category;
   FilterScreen(this.category);

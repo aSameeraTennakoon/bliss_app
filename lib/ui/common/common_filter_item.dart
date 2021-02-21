@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 
+///common widget for filtered list view elements
 Widget commonCategoryItem(color, image, label) {
   return Container(
     padding: EdgeInsets.only(right: 20, left: 20),

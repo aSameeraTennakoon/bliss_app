@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
 
+///API request to retrieve app user data
 Future<UserData> getAppUserData(context) async {
   UserData data;
   try {

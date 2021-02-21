@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 
+///common widget for quantity increase decrease elements
 class IncrementDecrementWidget extends StatelessWidget {
   final Function onDecrement;
   final Function onIncrement;

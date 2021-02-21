@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 
+/// cart page UI
 class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();

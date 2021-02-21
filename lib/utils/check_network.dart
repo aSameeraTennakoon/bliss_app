@@ -2,6 +2,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
+///check network status to execute API requests
 Future checkNetworkStatus(BuildContext context) async {
   bool status = false;
 

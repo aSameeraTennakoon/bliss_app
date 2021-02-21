@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:bliss_flutter/data_models/items_model.dart';
 import 'package:toast/toast.dart';
 
+///API request to retrieve item data
 Future<ItemsData> getAllData(context) async {
   ItemsData data;
   try {

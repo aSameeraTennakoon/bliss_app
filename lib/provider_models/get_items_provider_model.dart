@@ -17,6 +17,7 @@ class ItemsProviderModel with ChangeNotifier {
   List<Item> purseList = [];
   double total = 0.0;
 
+  ///the list of items from API
   getItemsData(context) {
     checkNetworkStatus(context).then((value) async {
       isLoading = true;
@@ -37,18 +38,22 @@ class ItemsProviderModel with ChangeNotifier {
     });
   }
 
+  ///set navigating item as the single item from the list
   setSingleItem(item) => selectedItem = item;
 
+  ///adding single item to favourites/ set as favourite
   addToFav(context, fav, index) {
     itemsData.data[index].isFav = fav;
     notifyListeners();
   }
 
+  ///increase the quantity of a single item
   incrementQuant(context, index) {
     itemsData.data[index].quantity++;
     notifyListeners();
   }
 
+  ///decrease the quantity of a single item
   decrementQuant(context, index) {
     if (itemsData.data[index].quantity > 0) {
       itemsData.data[index].quantity--;
@@ -56,6 +61,7 @@ class ItemsProviderModel with ChangeNotifier {
     notifyListeners();
   }
 
+  ///add single item to cart
   addToCart(context, item) {
     if (cartList.contains(item)) {
     } else {
@@ -65,6 +71,7 @@ class ItemsProviderModel with ChangeNotifier {
     notifyListeners();
   }
 
+  ///remove item from the cart
   removeFromCart(context, item) {
     if (cartList.contains(item)) {
       cartList.remove(item);
@@ -73,6 +80,7 @@ class ItemsProviderModel with ChangeNotifier {
     }
   }
 
+  ///divide items list in to categories
   addToCategory(context, items) {
     for (Item c in items) {
       if (c.category == 'bag') {
@@ -85,6 +93,7 @@ class ItemsProviderModel with ChangeNotifier {
     }
   }
 
+  ///calculate the sum of the items in the cart list
   calculateTotal(context) {
     total = 0;
     for (var i = 0; i < cartList.length; i++) {
@@ -94,6 +103,7 @@ class ItemsProviderModel with ChangeNotifier {
     notifyListeners();
   }
 
+  ///search for a keyword specific item from the items list
   searchItems(context, keyword) {
     searchList.clear();
     for (var i = 0; i < itemsData.data.length; i++) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 
+///common widget for category list view elements
 Widget commonCategoryListItem(context, color, w, h, image, data) {
   return Container(
     // height:100,

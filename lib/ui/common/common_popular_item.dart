@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bliss_flutter/global/theme.dart' as theme;
 import 'package:provider/provider.dart';
 
+///common widget for popular list view elements
 Widget commonPopularItem(context, data, index, color, image, label) {
   bool isFav = false;
   final getDataPMDL = Provider.of<ItemsProviderModel>(context);

@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:bliss_flutter/ui/common/common_filter_item.dart';
 import 'package:bliss_flutter/ui/common/common_popular_item.dart';
 
+///home screen UI
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
